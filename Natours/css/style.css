@@ -71,7 +71,7 @@ body {
     font-weight: 400;
     letter-spacing: 35px;
 
-    animation-name: moveInLeft;
+    animation-name: moveFromLeft;
     animation-duration: 1s;
     animation-timing-function: ease-out;
 
@@ -87,10 +87,10 @@ body {
     font-weight: 700;
     letter-spacing: 17.4px;
 
-    animation: moveInRight 1s ease-out;
+    animation: moveFromRight 1s ease-out;
 }
 
-@keyframes moveInLeft {
+@keyframes moveFromLeft {
     0% {
         opacity: 0;
         transform: translateX(-100px);
@@ -106,7 +106,7 @@ body {
     }
 }
 
-@keyframes moveInRight {
+@keyframes moveFromRight {
     0% {
         opacity: 0;
         transform: translateX(100px);
@@ -114,6 +114,18 @@ body {
 
     80% {
         transform: translateX(-10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+@keyframes moveFromBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
     }
 
     100% {
@@ -130,6 +142,7 @@ body {
     display: inline-block;
     border-radius: 150px;
     transition: all .2s;
+    position: relative;
 }
 
 .btn:hover {
@@ -142,7 +155,34 @@ body {
     box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
 }
 
+.btn::after {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 150px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all .4s;
+}
+
+.btn:hover::after {
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+}
+
 .btn-white {
     background-color: #fff;
     color: #777;
+}
+
+.btn-white::after {
+    background-color: #fff;
+}
+
+.btn-animated {
+    animation: moveFromBottom .5s ease-out .5s;
+    animation-fill-mode: backwards;
 }
