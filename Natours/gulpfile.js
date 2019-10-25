@@ -2,6 +2,8 @@
 var gulp = require('gulp');
 var sass = require('gulp-sass');
 var rename = require('gulp-rename');
+// prevent gulp watch task from crashing if something throws error
+var plumber = require('gulp-plumber');
 var browserSync = require('browser-sync').create();
 
 gulp.task('browserSync', function (done) {
@@ -16,6 +18,7 @@ gulp.task('browserSync', function (done) {
 gulp.task('sass', function (done) {
   gulp
     .src('./sass/main.scss')
+    .pipe(plumber())
     .pipe(sass({ errLogToConsole: true }))
     .pipe(rename('style.css'))
     .pipe(gulp.dest('./css'))
