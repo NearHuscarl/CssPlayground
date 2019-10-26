@@ -7,7 +7,7 @@
 
     &__side {
         height: 52rem;
-        border-radius: 3px;
+        border-radius: $border-radius;
         overflow: hidden; // stop image from overflowing thus hiding border corners
         box-shadow: 0 1.5rem 4rem rgba($color-black, 0.15);
 
@@ -132,10 +132,7 @@
     }
 
     &__cta {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+        @include center-absolute;
         width: 90%;
         text-align: center;
     }
