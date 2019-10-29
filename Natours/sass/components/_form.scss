@@ -16,6 +16,10 @@
         display: block;
         transition: all 0.3s;
 
+        @include response(tab-port) {
+            width: 100%;
+        }
+
         &:focus {
             outline: none;
             box-shadow: 0 1rem 2rem rgba($color-black, 0.1);
@@ -50,6 +54,11 @@
         // 50% does not make 2 radio button on the same row for some reasons
         width: 49%;
         display: inline-block;
+
+        @include response(tab-port) {
+            width: 100%;
+            margin-bottom: 2rem;
+        }
     }
 
     &__radio-input {
@@ -79,7 +88,7 @@
             content: "";
             display: block;
             border-radius: 50%;
-            @include center-absolute;
+            @include centerAbsolute;
             background-color: $color-primary;
             opacity: 0;
             transition: opacity 0.2s;

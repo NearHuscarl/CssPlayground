@@ -11,7 +11,7 @@
     transition: all 0.3s;
 
     &__content {
-        @include center-absolute;
+        @include centerAbsolute;
         width: 75%;
         background-color: $color-white;
         box-shadow: 0 2rem 4rem rgba($color-black, 0.2);
@@ -22,7 +22,11 @@
 
         opacity: 0;
         transform: translate(-50%, -50%) scale(0.25);
-        transition: all 0.5s .2s;
+        transition: all 0.5s 0.2s;
+
+        @include response(tab-land) {
+            width: 90%;
+        }
     }
 
     &__left {
@@ -30,6 +34,11 @@
         // use table-cell and table instead of float to have 2 children had the
         // same height, thus can vertical align nicely
         display: table-cell;
+        vertical-align: middle;
+
+        @include response(phone) {
+            display: none;
+        }
     }
 
     &__right {
@@ -60,6 +69,14 @@
         -ms-hyphens: auto;
         -webkit-hyphens: auto;
         hyphens: auto;
+
+        @include response(tab-port) {
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+
+            -moz-column-count: 1;
+            column-count: 1;
+        }
     }
 
     &:target {
