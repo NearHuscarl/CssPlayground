@@ -26,3 +26,8 @@ $gutter-vertical-small: 6rem;
 $gutter-horizontal: 6rem;
 
 $border-radius: 3px;
+
+// em unit should be used in media query
+$phone-breakpoint: 37.5em; // 600px / 16
+$huge-desktop-breakpoint: 125em; // 2000px / 16
+$high-resolution: 192dpi;
