@@ -1,10 +1,11 @@
 // Sass configuration
-var gulp = require('gulp');
-var sass = require('gulp-sass');
-var rename = require('gulp-rename');
+const gulp = require('gulp');
+const sass = require('gulp-sass');
+const rename = require('gulp-rename');
+const autoprefixer = require('gulp-autoprefixer');
 // prevent gulp watch task from crashing if something throws error
-var plumber = require('gulp-plumber');
-var browserSync = require('browser-sync').create();
+const plumber = require('gulp-plumber');
+const browserSync = require('browser-sync').create();
 
 gulp.task('browserSync', function (done) {
   browserSync.init({
@@ -19,8 +20,9 @@ gulp.task('sass', function (done) {
   gulp
     .src('./sass/main.scss')
     .pipe(plumber())
-    .pipe(sass({ errLogToConsole: true }))
+    .pipe(sass({ errLogToConsole: true, outputStyle: 'compressed', }))
     .pipe(rename('style.css'))
+    .pipe(autoprefixer())
     .pipe(gulp.dest('./css'))
     .pipe(browserSync.stream());
   done();
