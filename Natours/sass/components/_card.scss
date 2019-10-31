@@ -153,7 +153,7 @@
         font-weight: 100;
     }
 
-    @include response(tab-port) {
+    @media only screen and (max-width: $tab-port-breakpoint), only screen and (hover: none) {
         height: auto;
         border-radius: $border-radius;
         overflow: hidden;
