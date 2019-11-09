@@ -1,0 +1,66 @@
+.container > * {
+    background-color: orangered;
+    color: white;
+    font-family: sans-serif;
+    font-weight: 700;
+    padding: 10px;
+}
+
+/* Naming grid lines */
+
+/* .container {
+    width: 600px;
+    display: grid;
+    grid-template-rows: [header-start] 60px [header-end box-start] 100px [box-end main-start] 200px [main-end footer-start] 50px [footer-end];
+    grid-template-columns: repeat(3, [col-start] 1fr [col-end]) 120px [col-last];
+    gap: 20px;
+}
+
+.header {
+    grid-column: col-start 1 / col-last;
+}
+
+.sidebar {
+    grid-row: box-start / main-end;
+}
+
+.main {
+    grid-row: main-start / main-end;
+    grid-column: col-start 1 / col-end 3;
+}
+
+.footer {
+    grid-column: col-start 1 / col-last;
+} */
+
+/* Naming grid areas */
+
+.container {
+    width: 600px;
+    display: grid;
+    grid-template-rows: 60px 100px 200px 50px;
+    grid-template-columns: repeat(3, 1fr) 120px;
+    gap: 20px;
+
+    grid-template-areas:
+        "head head head head"
+        "box_ box_ box_ side"
+        "main main main side"
+        "foot foot foot foot";
+}
+
+.header {
+    grid-area: head;
+}
+
+.sidebar {
+    grid-area: side;
+}
+
+.main {
+    grid-area: main;
+}
+
+.footer {
+    grid-area: foot;
+}

@@ -1,0 +1,21 @@
+{
+  "name": "nexter",
+  "version": "1.0.0",
+  "description": "nexter webpage",
+  "repository": "git@github.com:NearHuscarl/CssPlayground.git",
+  "author": "NearHuscarl <near.huscarl@gmail.com>",
+  "license": "MIT",
+  "main": "index.js",
+  "devDependencies": {
+    "browser-sync": "^2.26.7",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-plumber": "^1.2.1",
+    "gulp-rename": "^1.4.0",
+    "gulp-sass": "^4.0.2"
+  },
+  "scripts": {
+    "start": "gulp"
+  },
+  "dependencies": {}
+}
